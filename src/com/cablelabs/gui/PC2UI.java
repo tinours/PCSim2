@@ -791,6 +791,10 @@ public class PC2UI extends JFrame implements PC2UIControls,
 		tabPane.updateSize(w.getWidth(), w.getHeight());
 		displayStateMessage(	"WindowStateListener method called: windowStateChanged.", e);
 	}
+	
+	public static void openEventQueueVis(File log) {
+		
+	}
 
 
 

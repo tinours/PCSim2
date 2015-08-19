@@ -55,13 +55,13 @@ public class PC2MenuBar extends JMenuBar implements ActionListener, ClipboardOwn
 	private String[] fileItems = new String[] { "Open", "Close", "Save", "Save As", "Exit" };
 	private String[] helpItems = new String[] { "About", "License"};
 	private String[] editItems = new String[] { "Cut", "Copy", "Paste", "Find" } ;// { "Undo",  };
-	private String[] toolsItems = new String[] { "Launch Sequence Diagram Tool" };
+	private String[] toolsItems = new String[] { "Launch Sequence Diagram Tool", "EventQueue Visualizer" };
 	protected JMenuItem [] histItems = new JMenuItem [History.MAX_NUM_HISTORY_FILES];
 	private char[] fileShortcuts = { 'O','C','S','A','X' };
 	private char[] helpShortcuts = { 'A','L'};
 	private char[] editShortcuts = { 'X','C','V','F' }; //	{ 'Z', };
 	private char[] histShortcuts = { '1', '2', '3', '4' };
-	private char[] toolsShortcuts = { 'D' };
+	private char[] toolsShortcuts = { 'D', 'E' };
 //	private File lastPCFDirectory = new File(".");
 //	private File lastDCFDirectory = new File(".");
 //	private File lastScriptsDirectory = new File(".");
@@ -302,6 +302,9 @@ public class PC2MenuBar extends JMenuBar implements ActionListener, ClipboardOwn
 		}
 		else if (action.equals("Launch Sequence Diagram Tool")) {
 		    PC2UI.openLogInSDT(null);
+		}
+		else if (action.equals("EventQueue Visualizer")) {
+			PC2UI.openEventQueueVis(null);
 		}
 		else {
 			for (int i =0; i< history.histCount; i++) {
