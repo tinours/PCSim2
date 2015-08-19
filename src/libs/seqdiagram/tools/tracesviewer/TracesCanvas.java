@@ -43,6 +43,7 @@ package tools.tracesviewer;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -54,6 +55,8 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.Enumeration;
 import java.util.HashMap;
+
+import org.apache.commons.collections15.iterators.IteratorEnumeration;
 
 import com.cablelabs.diagram.Actor;
 /**
@@ -220,7 +223,7 @@ public class TracesCanvas
 		g.drawLine(0, ACTORS_STRIPE, widthCanvas, ACTORS_STRIPE);
 
 		// draw the actors above the separation line and their vertical line:
-		Enumeration<String> e = actors.keys();
+		Enumeration<String> e = new IteratorEnumeration<String>(actors.keySet().iterator());
 		while (e.hasMoreElements()) {
 			String origin = e.nextElement();
 			int positionX = actors.get(origin).intValue();
@@ -412,7 +415,7 @@ public class TracesCanvas
 
 	public Arrow getArrow(int x, int y) {
 		//System.out.println("getArrow: x:"+x+" y:"+y);
-		Enumeration<String> e = arrows.keys();
+		Enumeration<String> e = new IteratorEnumeration<String>(arrows.keySet().iterator());
 		while (e.hasMoreElements()) {
 			String arrowName = e.nextElement();
 			Arrow arrow = arrows.get(arrowName);
@@ -426,7 +429,7 @@ public class TracesCanvas
 
 	public Arrow getArrowInfo(int x, int y) {
 		//System.out.println("getArrow: x:"+x+" y:"+y);
-		Enumeration<String> e = arrows.keys();
+		Enumeration<String> e = new IteratorEnumeration<String>(arrows.keySet().iterator());
 		while (e.hasMoreElements()) {
 			String arrowName = e.nextElement();
 			Arrow arrow = arrows.get(arrowName);
@@ -508,7 +511,7 @@ public class TracesCanvas
 
 	    
 	    
-		Enumeration<String> e = arrows.keys();
+		Enumeration<String> e = new IteratorEnumeration<String>(arrows.keySet().iterator());
 		while (e.hasMoreElements()) {
 			String arrowName = e.nextElement();
 			Arrow arrow = arrows.get(arrowName);
@@ -525,7 +528,7 @@ public class TracesCanvas
 	}
 
 	public void unvisibleAllArrows() {
-		Enumeration<String> e = arrows.keys();
+		Enumeration<String> e = new IteratorEnumeration<String>(arrows.keySet().iterator());
 		while (e.hasMoreElements()) {
 			String arrowName = e.nextElement();
 			Arrow arrow = arrows.get(arrowName);
@@ -534,7 +537,7 @@ public class TracesCanvas
 	}
 
 	public void unselectAllArrows() {
-		Enumeration<String> e = arrows.keys();
+		Enumeration<String> e = new IteratorEnumeration<String>(arrows.keySet().iterator());
 		while (e.hasMoreElements()) {
 			String arrowName = e.nextElement();
 			Arrow arrow = arrows.get(arrowName);
@@ -566,7 +569,7 @@ public class TracesCanvas
 
 	public void unDisplayInfo() {
 		//System.out.println("getArrow: x:"+x+" y:"+y);
-		Enumeration<String> e = arrows.keys();
+		Enumeration<String> e = new IteratorEnumeration<String>(arrows.keySet().iterator());
 		boolean repaint = false;
 		while (e.hasMoreElements()) {
 			String arrowName = e.nextElement();
@@ -637,7 +640,7 @@ public class TracesCanvas
 			drawTop(g);
 			drawArrows(g);
 			
-			Enumeration<String> e = actors.keys();
+			Enumeration<String> e = new IteratorEnumeration<String>(actors.keySet().iterator());
 	        while (e.hasMoreElements()) {
 	            String origin = e.nextElement();
 	            int positionX = actors.get(origin).intValue();

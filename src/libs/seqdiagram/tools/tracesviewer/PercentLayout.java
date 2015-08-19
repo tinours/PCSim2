@@ -3,6 +3,8 @@ package tools.tracesviewer;
 import java.awt.*;
 import java.util.*;
 
+import org.apache.commons.collections15.iterators.IteratorEnumeration;
+
 /**
  * Lays out components within a Container such that each component takes a fixed percentage of the size.
  *
@@ -35,7 +37,8 @@ public class PercentLayout implements LayoutManager2 {
 		int prefx = 0;
 		int prefy = 0;
 
-		Enumeration<Component> keys = hash.keys();
+		
+		Enumeration<Component> keys = new IteratorEnumeration<Component>(hash.keySet().iterator());
 		while (keys.hasMoreElements()) {
 			Component comp = keys.nextElement();
 			PercentLayoutConstraint constraint =
@@ -52,7 +55,7 @@ public class PercentLayout implements LayoutManager2 {
 		int minx = 0;
 		int miny = 0;
 
-		Enumeration<Component> keys = hash.keys();
+		Enumeration<Component> keys = new IteratorEnumeration<Component>(hash.keySet().iterator());
 		while (keys.hasMoreElements()) {
 			Component comp = keys.nextElement();
 			PercentLayoutConstraint constraint =
@@ -71,8 +74,9 @@ public class PercentLayout implements LayoutManager2 {
 	public Dimension maximumLayoutSize(Container p1) {
 		int maxx = Integer.MAX_VALUE;
 		int maxy = Integer.MAX_VALUE;
-
-		Enumeration<Component> keys = hash.keys();
+		
+		
+		Enumeration<Component> keys = new IteratorEnumeration<Component>(hash.keySet().iterator());
 		while (keys.hasMoreElements()) {
 			Component comp = keys.nextElement();
 			PercentLayoutConstraint constraint =
@@ -96,7 +100,7 @@ public class PercentLayout implements LayoutManager2 {
 	@Override
 	public void layoutContainer(Container p1) {
 		Dimension size = p1.getSize();
-		Enumeration<Component> keys = hash.keys();
+		Enumeration<Component> keys = new IteratorEnumeration<Component>(hash.keySet().iterator());
 		while (keys.hasMoreElements()) {
 			Component comp = keys.nextElement();
 			PercentLayoutConstraint constraint =
